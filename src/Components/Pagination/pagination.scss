@@ -1,0 +1,56 @@
+$primary-color: rgb(226, 108, 98);
+
+@mixin d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination {
+    @include d-flex;
+    padding: 12px 0;
+    &-item {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: #fff;
+        border: 1px solid #fff;
+        @include d-flex;
+        color: $primary-color;
+        margin: 0 6px 12px 6px;
+        font-weight: 300;
+        font-size: 16px;
+        font-family: Abel;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+        svg {
+            width: 8px;
+            stroke: $primary-color;
+
+            path {
+                fill: $primary-color;
+            }
+        }
+    }
+
+    &-item--active {
+        background-color: $primary-color;
+        color: #fff;
+        border: 1px solid $primary-color;
+    }
+
+    &-redirect:hover {
+        background-color: $primary-color;
+        border: 1px solid $primary-color;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        svg {
+            width: 8px;
+            stroke: #fff;
+
+            path {
+                fill: #fff;
+            }
+        }
+    }
+}

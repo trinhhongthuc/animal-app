@@ -1,0 +1,165 @@
+$primary-color: rgb(226, 108, 98);
+.animal {
+    &-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 300px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+
+        &:hover .note-description {
+            display: none;
+        }
+
+        &:hover .animal-item--note {
+            border-left: 1px solid #999;
+        }
+    }
+    &-item--information {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: $primary-color;
+        height: 100%;
+        padding: 12px 18px 0 12px;
+        .information {
+            &-img {
+                width: 90px;
+                height: 90px;
+                border-radius: 50%;
+                border: 3px solid rgb(228, 64, 64);
+                box-shadow: 0 0 3px rgba(228, 64, 64, 0.5);
+                margin-bottom: 25px;
+            }
+            &-age {
+                padding: 6px 18px;
+                border-radius: 18px;
+                color: #fff;
+                background-color: rgba(0, 0, 0, 0.3);
+                text-transform: capitalize;
+                font-size: 14px;
+                font-weight: 300;
+            }
+        }
+    }
+
+    &-item--note {
+        width: 60%;
+        color: #333;
+        background-color: #fff;
+        height: 100%;
+        padding: 12px 18px 12px 12px;
+        border-left: 1px solid $primary-color;
+        position: relative;
+
+        &:hover::before {
+            animation: animation-scroll-right 0.7s ease-in-out;
+            transition: all 0.7s ease-in-out;
+            opacity: 1;
+        }
+
+        &:hover .note-title {
+            color: #fff;
+            z-index: 10;
+            position: relative;
+        }
+        &:hover .note-animal {
+            display: flex;
+        }
+
+        &:hover .note-contact {
+            display: block;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: $primary-color;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .note {
+            &-title {
+                padding: 18px 0;
+                text-align: center;
+            }
+            &-description {
+                font-size: 15px;
+                color: #333;
+                font-family: Abel;
+            }
+            &-animal {
+                position: relative;
+                z-index: 10;
+                display: none;
+                flex-wrap: wrap;
+                p {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 6px;
+                    width: 50%;
+
+                    span {
+                        font-size: 16px;
+                        color: #fff;
+
+                        &:first-child {
+                            font-weight: bold;
+                            margin-right: 6px;
+                            text-transform: capitalize;
+                        }
+                    }
+                }
+            }
+
+            &-contact {
+                display: none;
+                position: relative;
+                z-index: 10;
+                h4 {
+                    font-size: 20px;
+                    color: #fff;
+                    padding: 12px 0;
+                }
+            }
+            &-contact--wrapper {
+                margin-bottom: 6px;
+                width: 100%;
+
+                p {
+                    width: 100%;
+                }
+                span {
+                    font-size: 15px;
+                    color: #fff;
+
+                    &:first-child {
+                        font-weight: bold;
+                        margin-right: 6px;
+                        text-transform: capitalize;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes animation-scroll-right {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
